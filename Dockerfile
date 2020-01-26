@@ -4,7 +4,7 @@ WORKDIR /home/steam
 USER steam
 
 RUN mkdir -p /home/steam/ark/ShooterGame/Saved/SavedArks
-COPY update_and_start.sh /home/steam/update_and_start.sh
+COPY --chown=steam:steam update_and_start.sh /home/steam/update_and_start.sh
 
 ENV SESSIONNAME="ARK Server in Docker" \
     PORT="7777" \

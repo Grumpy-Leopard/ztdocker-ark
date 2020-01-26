@@ -8,14 +8,18 @@ RUN mkdir -p ./ark/ShooterGame/Saved/SavedArks \
     && chmod +x ./update_and_start.sh
 
 
-ENV SESSIONNAME="ARK Server in Docker" \
-    PORT="7777" \
-    QUERYPORT="27015" \
-    RCONPORT="32330" \
-    SERVERADMINPASSWORD="YouShouldChangeThisWhenDeploying" \
-    MAXPLAYERS="50"
+ARG SESSIONNAME="ARK Server in Docker"
+ARG PORT="7777"
+ARG QUERYPORT="27015"
+ARG RCONPORT="32330"
+ARG SERVERADMINPASSWORD="YouShouldChangeThisWhenDeploying"
+ARG MAXPLAYERS="50"
 
 VOLUME ./ark
 VOLUME ./ark/ShooterGame/Saved/SavedArks
+
+EXPOSE ${PORT}
+EXPOSE ${QUERYPORT}
+EXPOSE ${RCONPORT}
 
 CMD ["./update_and_start.sh"]

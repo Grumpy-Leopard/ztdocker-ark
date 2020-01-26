@@ -18,8 +18,8 @@ ARG MAXPLAYERS="50"
 VOLUME ./ark
 VOLUME ./ark/ShooterGame/Saved/SavedArks
 
-EXPOSE ${PORT}
-EXPOSE ${QUERYPORT}
-EXPOSE ${RCONPORT}
+EXPOSE ${PORT}/udp
+EXPOSE ${QUERYPORT}/udp
+EXPOSE ${RCONPORT}/udp
 
 CMD ["./update_and_start.sh"]
